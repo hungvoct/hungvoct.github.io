@@ -1,142 +1,121 @@
-window.HELP_IMPROVE_VIDEOJS = false;
+// LUSIC12 — minimal homepage JS
+(function () {
+  'use strict';
 
-// More Works Dropdown Functionality
-function toggleMoreWorks() {
-    const dropdown = document.getElementById('moreWorksDropdown');
-    const button = document.querySelector('.more-works-btn');
-    
-    if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
-        button.classList.remove('active');
-    } else {
-        dropdown.classList.add('show');
-        button.classList.add('active');
-    }
-}
+  // Header scroll shadow
+  var header = document.querySelector('.site-header');
+  if (header) {
+    window.addEventListener('scroll', function () {
+      header.style.boxShadow = window.scrollY > 10
+        ? '0 2px 12px rgba(0,0,0,0.08)'
+        : 'none';
+    }, { passive: true });
+  }
 
-// Close dropdown when clicking outside
-document.addEventListener('click', function(event) {
-    const container = document.querySelector('.more-works-container');
-    const dropdown = document.getElementById('moreWorksDropdown');
-    const button = document.querySelector('.more-works-btn');
-    
-    if (container && !container.contains(event.target)) {
-        dropdown.classList.remove('show');
-        button.classList.remove('active');
-    }
-});
+  // Active nav link based on scroll position
+  var sections = document.querySelectorAll('[id]');
+  var navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
 
-// Close dropdown on escape key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        const dropdown = document.getElementById('moreWorksDropdown');
-        const button = document.querySelector('.more-works-btn');
-        dropdown.classList.remove('show');
-        button.classList.remove('active');
-    }
-});
+  if (navLinks.length && sections.length) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
 
-// Copy BibTeX to clipboard
-function copyBibTeX() {
-    const bibtexElement = document.getElementById('bibtex-code');
-    const button = document.querySelector('.copy-bibtex-btn');
-    const copyText = button.querySelector('.copy-text');
-    
-    if (bibtexElement) {
-        navigator.clipboard.writeText(bibtexElement.textContent).then(function() {
-            // Success feedback
-            button.classList.add('copied');
-            copyText.textContent = 'Cop';
-            
-            setTimeout(function() {
-                button.classList.remove('copied');
-                copyText.textContent = 'Copy';
-            }, 2000);
-        }).catch(function(err) {
-            console.error('Failed to copy: ', err);
-            // Fallback for older browsers
-            const textArea = document.createElement('textarea');
-            textArea.value = bibtexElement.textContent;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            
-            button.classList.add('copied');
-            copyText.textContent = 'Cop';
-            setTimeout(function() {
-                button.classList.remove('copied');
-                copyText.textContent = 'Copy';
-            }, 2000);
+    sections.forEach(function (s) { observer.observe(s); });
+  }
+
+  // Publication filter
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var paperCards = document.querySelectorAll('.paper-card');
+
+  if (filterBtns.length && paperCards.length) {
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var filter = btn.getAttribute('data-filter');
+        
+        // Update active button
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        
+        // Filter papers
+        paperCards.forEach(function (card) {
+          var categories = card.getAttribute('data-category').split(' ');
+          var show = filter === 'all' || categories.includes(filter);
+          card.style.display = show ? 'flex' : 'none';
+          if (show) {
+            card.style.animation = 'fadeIn 300ms ease forwards';
+          }
         });
-    }
-}
-
-// Scroll to top functionality
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      });
     });
-}
+  }
 
-// Show/hide scroll to top button
-window.addEventListener('scroll', function() {
-    const scrollButton = document.querySelector('.scroll-to-top');
-    if (window.pageYOffset > 300) {
-        scrollButton.classList.add('visible');
-    } else {
-        scrollButton.classList.remove('visible');
-    }
-});
+  // Auto project visualization thumbnail:
+  // Drop one image named visualize.(png|jpg|jpeg|webp|avif) into figs/projects/<project-folder>/
+  // and the corresponding card will pick it up automatically.
+  var autoThumbs = document.querySelectorAll('.paper-thumb-auto');
+  var candidateNames = [
+    'visualize.png',
+    'visualize.jpg',
+    'visualize.jpeg',
+    'visualize.webp',
+    'visualize.avif',
+    'cover.png',
+    'cover.jpg',
+    'cover.jpeg',
+    'multicamera.png',
+    'Multicamera.png',
+    'preview.png',
+    'preview.jpg'
+  ];
 
-// Video carousel autoplay when in view
-function setupVideoCarouselAutoplay() {
-    const carouselVideos = document.querySelectorAll('.results-carousel video');
-    
-    if (carouselVideos.length === 0) return;
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const video = entry.target;
-            if (entry.isIntersecting) {
-                // Video is in view, play it
-                video.play().catch(e => {
-                    // Autoplay failed, probably due to browser policy
-                    console.log('Autoplay prevented:', e);
-                });
-            } else {
-                // Video is out of view, pause it
-                video.pause();
-            }
-        });
-    }, {
-        threshold: 0.5 // Trigger when 50% of the video is visible
-    });
-    
-    carouselVideos.forEach(video => {
-        observer.observe(video);
-    });
-}
+  function loadFirstExistingImage(basePath, names, onSuccess, onFail) {
+    var index = 0;
 
-$(document).ready(function() {
-    // Check for click events on the navbar burger icon
+    function tryNext() {
+      if (index >= names.length) {
+        onFail();
+        return;
+      }
 
-    var options = {
-		slidesToScroll: 1,
-		slidesToShow: 1,
-		loop: true,
-		infinite: true,
-		autoplay: true,
-		autoplaySpeed: 5000,
+      var url = basePath + names[index];
+      index += 1;
+
+      var testImg = new Image();
+      testImg.onload = function () { onSuccess(url); };
+      testImg.onerror = tryNext;
+      testImg.src = url;
     }
 
-	// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-	
-    bulmaSlider.attach();
-    
-    // Setup video autoplay for carousel
-    setupVideoCarouselAutoplay();
+    tryNext();
+  }
 
-})
+  autoThumbs.forEach(function (thumb) {
+    var folder = thumb.getAttribute('data-project-folder');
+    var fallbackIcon = thumb.getAttribute('data-fallback-icon') || 'fa-image';
+
+    thumb.innerHTML = '<i class="fas ' + fallbackIcon + '"></i>';
+
+    if (!folder) {
+      return;
+    }
+
+    loadFirstExistingImage(
+      'figs/projects/' + folder + '/',
+      candidateNames,
+      function (src) {
+        thumb.classList.remove('paper-thumb-placeholder');
+        thumb.innerHTML = '<img src="' + src + '" alt="' + folder + ' visualization">';
+      },
+      function () {
+        // Keep icon placeholder if no image exists.
+      }
+    );
+  });
+}());
