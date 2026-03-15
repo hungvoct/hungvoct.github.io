@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Personal research homepage — computer vision, medical image segmentation, and AI.">
-  <meta name="keywords" content="LUSIC12, computer vision, medical image segmentation, SAGE-UNet, research homepage">
-  <meta name="author" content="LUSIC12">
-  <meta property="og:title" content="LUSIC12 | Research Homepage">
-  <meta property="og:description" content="Personal research homepage for LUSIC12 — computer vision and medical AI.">
+  <meta name="description" content="Personal research homepage — computer vision and robotics.">
+  <meta name="keywords" content="hungvoct, computer vision, medical image segmentation, SAGE-UNet, research homepage">
+  <meta name="author" content="hungvoct">
+  <meta property="og:title" content="hungvoct | Research Homepage">
+  <meta property="og:description" content="Personal research homepage for hungvoct — computer vision and robotics.">
   <meta property="og:image" content="figs/homepage/intro-me.jpeg">
   <meta name="robots" content="index, follow">
 
-  <title>LUSIC12 | Research Homepage</title>
+  <title>hungvoct | Research Homepage</title>
 
   <link rel="icon" type="image/x-icon" href="static/images/VN.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
 <body>
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="header-name" href="#top">LUSIC12</a>
+      <a class="header-name" href="#top">hungvoct</a>
       <nav class="site-nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#news">News</a>
@@ -40,29 +40,29 @@
     <!-- ====== ABOUT ====== -->
     <section id="about" class="about-section">
       <div class="about-photo">
-        <img src="figs/homepage/intro-me.jpeg" alt="Profile photo of LUSIC12">
+        <img src="figs/homepage/intro-me.jpeg" alt="Profile photo of hungvoct">
       </div>
 
       <div class="about-bio">
-        <h1>Anh-Minh <span class="name-cjk"></span></h1>
+        <h1>Ke-Hung Vo <span class="name-cjk"></span></h1>
 
         <p class="bio-text">
-          I am a researcher in <strong>Computer Vision</strong> and <strong>Image Processing</strong>.
+          I am a researcher in <strong>Computer Vision</strong> and <strong>Robotics</strong>.
         </p>
 
         <p class="bio-text">
           <strong>Research Interests:</strong>
-          <br>• Object Detection
-          <br>• Multiview Detection &amp; Tracking
-          <br>• Mixture of Experts (MoE)
+          <br>• Multi-Object Tracking (MOT)
+          <br>• Multiview Object Detection &amp; Multiview Object Tracking
+          <br>• Path Planning Algorithm 
         </p>
 
         <p class="bio-text">
-          I am open to research collaboration in vision and multimodal AI.
+          I am open to research collaboration in vision and robotics.
         </p>
 
         <p class="bio-text">
-          Currently, I am working with <strong>Dr. Linh Ma Van</strong>.
+          I am working with <strong>Dr. Linh Ma Van</strong>.
         </p>
 
         <div class="social-links">
@@ -72,7 +72,7 @@
           <span class="divider">/</span>
           <a href="https://scholar.google.com/citations?user=JCbuDwcAAAAJ&hl" target="_blank" rel="noreferrer"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
           <span class="divider">/</span>
-          <a href="https://github.com/Lusic12" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Github</a>
+          <a href="https://github.com/hungvoct" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Github</a>
         </div>
       </div>
     </section>
@@ -96,33 +96,7 @@
         <button class="filter-btn" data-filter="medical image">Medical Image</button>
         <button class="filter-btn" data-filter="video">Video Retrieval</button>
       </div>
-      <!-- 
-      Paper 1: Mixture of Experts
-      <article class="paper-card" data-category="medical image">
-        <div class="paper-badge">MoE</div>
-        <div class="paper-thumb paper-thumb-placeholder paper-thumb-auto" data-project-folder="sage-unet" data-fallback-icon="fa-brain"></div>
-        <div class="paper-info">
-          <h3 class="paper-title">
-            SAGE-UNet: Shape-Adapting Gated Experts for Colonoscopic Lesion Segmentation
-          </h3>
-          <p class="paper-authors">
-            Anh-Minh, Co-author A, Co-author B, Supervisor Name
-          </p>
-          <p class="paper-venue">
-            <i class="fas fa-file-alt venue-icon"></i> <em>arXiv 2025</em>
-          </p>
-          <p class="paper-tldr">
-            A dynamic mixture-of-experts architecture that adaptively routes spatial features through CNN and Transformer branches for medical image segmentation, combining interpretability with state-of-the-art performance.
-          </p>
-          <div class="paper-buttons">
-            <a href="https://arxiv.org/abs/2511.18493" target="_blank" rel="noreferrer" class="paper-btn"><i class="fas fa-file-pdf"></i> Paper</a>
-            <a href="#" class="paper-btn"><i class="fas fa-code"></i> Code</a>
-          </div>
-        </div>
-      </article>
-      
-        -->
-      <!-- Paper 2: Multiview Camera Systems  -->
+      <!-- Paper 1: Multiview Camera Systems  -->
       <article class="paper-card" data-category="multiview collab">
         <div class="paper-badge badge-blue">Multiview</div>
         <div class="paper-thumb paper-thumb-placeholder paper-thumb-auto" data-project-folder="multiview" data-fallback-icon="fa-cube"></div>
@@ -148,38 +122,7 @@
           </div>
         </div>
       </article>
-
       
-
-      <!-- Paper 3: Video Retrieval + Multimodal -->
-      <article class="paper-card" data-category="video">
-        <div class="paper-badge badge-orange">Video Retrieval</div>
-        <div class="paper-thumb paper-thumb-placeholder paper-thumb-auto" data-project-folder="video-retrieval" data-fallback-icon="fa-film"></div>
-        <div class="paper-info">
-          <h3 class="paper-title">
-            Enhanced Multimodal Video Retrieval System: Integrating Query Expansion and Cross-modal Temporal Event Retrieval
-          </h3>
-          <p class="paper-authors">
-            Van-Thinh Vo, Minh-Khoi Nguyen, Minh-Huy Tran, Anh-Quan Nguyen-Tran, Duy-Tan Nguyen, Khanh-Loi Nguyen, Anh-Minh Phan
-          </p>
-          <p class="paper-venue">
-            <i class="fas fa-file-alt venue-icon"></i> <em>The 14th International Symposium on Information and Communication Technology (SoICT) 2025</em>
-          </p>
-          <p class="paper-accept">
-            <i class="far fa-calendar-check"></i> Accepted: 11/2025
-          </p>
-          <p class="paper-tldr">
-            Our team reached the Final Round of the Video Retrieval Event at the Ho Chi Minh City AI Challenge 2025.
-          </p>
-          <div class="paper-buttons">
-            <a href="https://arxiv.org/abs/2512.06334" target="_blank" rel="noreferrer" class="paper-btn"><i class="fas fa-file-pdf"></i> Paper</a>
-            <a href="https://github.com/ThinhVan27/AIC-2025" target="_blank" rel="noreferrer" class="paper-btn"><i class="fas fa-code"></i> Code</a>
-            <a href="/figs/projects/video-retrieval/poster.png" class="paper-btn"><i class="fas fa-image"></i> Poster</a>
-            <a href="https://huyrua27.github.io/eeiotnewbie-AIC2025/" target="_blank" rel="noreferrer" class="paper-btn"><i class="fas fa-external-link-alt"></i> Project</a>
-          </div>
-        </div>
-      </article>
-
     </section>
 
     <!-- ====== EDUCATION & EXPERIENCE ====== -->
@@ -195,12 +138,12 @@
             <h3>Ho Chi Minh University of Technology (VNU-HCM)</h3>
             <span class="exp-period">2021 — 2025</span>
           </div>
-          <p class="exp-role">B.S. in Electronics and Telecommunications</p>
-          <p class="exp-detail">Major focus: digital signal processing, computer vision systems. Specialization in image processing.</p>
+          <p class="exp-role">B.E. in Control Engineering and Automation</p>
+          <p class="exp-detail">Major focus: Robotics, Computer Vision. Specialize in Multi-object Tracking (MOT) for both single view and multi view</p>
         </div>
       </div>
 
-      <div class="exp-item">
+      <!-- <div class="exp-item">
         <div class="exp-logo">
           <div class="exp-logo-placeholder">
             <i class="fas fa-graduation-cap"></i>
@@ -211,34 +154,20 @@
             <h3>Master & PhD (Preparing)</h3>
             <span class="exp-period">2025/2026 — TBD</span>
           </div>
-          <p class="exp-role">Scholarship applicant: IELTS preparation underway</p>
-          <p class="exp-detail">Target: Master's & PhD programs in computer vision, image processing, or machine learning at research-focused institutions. Focus on 3D vision, medical imaging, and expert mixture architectures.</p>
+          <p class="exp-detail">Target: Master's & PhD programs in computer vision, robotics, or machine learning .</p>
         </div>
-      </div>
+      </div> -->
 
-      <div class="exp-item">
-        <div class="exp-logo">
-          <img src="figs/homepage/logo-aivn.png" alt="AI Vietnam logo">
-        </div>
-        <div class="exp-info">
-          <div class="exp-header">
-            <h3>Student Teacher Assistant · AI Việt Nam</h3>
-            <span class="exp-period">Aug 2024 — present</span>
-          </div>
-          <p class="exp-role">STA (Student Teaching Assistant)</p>
-          <p class="exp-detail">Supporting AI education initiatives, mentoring junior students on machine learning, computer vision, and research methodologies. Contributing to AI Việt Nam's mission to advance AI education in Vietnam.</p>
-        </div>
-      </div>
     </section>
 
   
 
     <!-- ====== CONTACT / FOOTER ====== -->
     <footer id="contact" class="site-footer">
-      <p>© 2025 LUSIC12 · Built with <a href="https://github.com/Lusic12/Lusic12.github.io" target="_blank" rel="noreferrer">open source</a></p>
+      <p>© 2025 hungvoct · Built with <a href="https://github.com/hungvoct/hungvoct.github.io" target="_blank" rel="noreferrer">open source</a></p>
       <div class="footer-links">
-        <a href="https://github.com/Lusic12" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
-        <a href="phananhm5@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/hungvoct" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
+        <a href="kehungfc123@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
     </footer>
 
