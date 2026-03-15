@@ -1,60 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta name="description" content="Personal research homepage — computer vision and robotics.">
-  <meta name="keywords" content="hungvoct, computer vision, medical image segmentation, SAGE-UNet, research homepage">
+  <meta name="keywords" content="hungvoct, multi-object tracking, multiview tracking, computer vision, robotics, research homepage">
   <meta name="author" content="hungvoct">
+
   <meta property="og:title" content="hungvoct | Research Homepage">
   <meta property="og:description" content="Personal research homepage for hungvoct — computer vision and robotics.">
-  <meta property="og:image" content="figs/homepage/my_avt.jpg">
+  <meta property="og:image" content="https://hungvoct.github.io/figs/homepage/my_avt.jpg">
+
   <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://hungvoct.github.io/">
 
   <title>hungvoct | Research Homepage</title>
 
   <link rel="icon" type="image/x-icon" href="static/images/VN.ico">
+
+  <!-- Performance -->
+  <link rel="preload" href="figs/homepage/my_avt.jpg" as="image">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- JS -->
   <script defer src="static/js/index.js"></script>
+
 </head>
 
+
 <body>
+
   <header class="site-header" id="top">
+
     <div class="container header-inner">
+
       <a class="header-name" href="#top">hungvoct</a>
-      <nav class="site-nav" aria-label="Primary">
+
+      <nav class="site-nav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#news">News</a>
         <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
       </nav>
+
     </div>
+
   </header>
+
 
   <main class="container">
 
-    <!-- ====== ABOUT ====== -->
+    <!-- ===== ABOUT ===== -->
+
     <section id="about" class="about-section">
+
       <div class="about-photo">
-        <img src="figs/homepage/my_avt.jpg" alt="Profile photo of hungvoct">
+        <img src="figs/homepage/my_avt.jpg" alt="Profile photo of Ke-Hung Vo">
       </div>
 
       <div class="about-bio">
-        <h1>Ke-Hung Vo <span class="name-cjk"></span></h1>
+
+        <h1>Ke-Hung Vo</h1>
 
         <p class="bio-text">
           I am a researcher in <strong>Computer Vision</strong> and <strong>Robotics</strong>.
         </p>
 
         <p class="bio-text">
-          <strong>Research Interests:</strong>
-          <br>• Multi-Object Tracking (MOT)
-          <br>• Multiview Object Detection &amp; Multiview Object Tracking
-          <br>• Path Planning Algorithm 
+          <strong>Research Interests:</strong><br>
+          • Multi-Object Tracking (MOT)<br>
+          • Multiview Object Detection & Multiview Object Tracking<br>
+          • Path Planning Algorithm
         </p>
 
         <p class="bio-text">
@@ -66,109 +96,185 @@
         </p>
 
         <div class="social-links">
-          <a href="mailto:kehungfc123@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+
+          <a href="mailto:kehungfc123@gmail.com">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+
           <span class="divider">/</span>
-          <a href="#" target="_blank" rel="noreferrer"><i class="fas fa-file-alt"></i> CV</a>
+
+          <a href="files/cv.pdf" target="_blank" rel="noreferrer">
+            <i class="fas fa-file-alt"></i> CV
+          </a>
+
           <span class="divider">/</span>
-          <a href="https://scholar.google.com/citations?user=yoSOGEUAAAAJ&hl=vi" target="_blank" rel="noreferrer"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+
+          <a href="https://scholar.google.com/citations?user=yoSOGEUAAAAJ&hl=vi" target="_blank" rel="noreferrer">
+            <i class="fas fa-graduation-cap"></i> Google Scholar
+          </a>
+
           <span class="divider">/</span>
-          <a href="https://github.com/hungvoct" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Github</a>
+
+          <a href="https://github.com/hungvoct" target="_blank" rel="noreferrer">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- ====== NEWS ====== -->
+
+    <!-- ===== NEWS ===== -->
+
     <section id="news" class="content-section">
+
       <h2 class="section-title">News</h2>
+
       <ul class="news-list">
-        <li><span class="news-date">[2025.5]</span> Coming Soon</li>
+        <li><span class="news-date">[May 2025]</span> Coming soon</li>
       </ul>
+
     </section>
 
-    <!-- ====== PUBLICATIONS ====== -->
+
+    <!-- ===== PUBLICATIONS ===== -->
+
     <section id="publications" class="content-section">
+
       <h2 class="section-title">Publications</h2>
 
-      <!-- Filter Tabs -->
       <div class="pub-filters">
+
         <button class="filter-btn active" data-filter="all">ALL</button>
         <button class="filter-btn" data-filter="multiview">Multiview Camera</button>
+
       </div>
-      <!-- Paper 1: Multiview Camera Systems  -->
-      <article class="paper-card" data-category="multiview collab">
+
+
+      <article class="paper-card" data-category="multiview">
+
         <div class="paper-badge badge-blue">Multiview</div>
-        <div class="paper-thumb paper-thumb-placeholder paper-thumb-auto" data-project-folder="multiview" data-fallback-icon="fa-cube"></div>
+
+        <div class="paper-thumb paper-thumb-placeholder paper-thumb-auto"
+          data-project-folder="multiview"
+          data-fallback-icon="fa-cube">
+        </div>
+
+
         <div class="paper-info">
+
           <h3 class="paper-title">
             Enhancing Multi-Camera People Tracking with Conflict-aware Cosine Tracking and Human Matching Re-assignment
           </h3>
+
           <p class="paper-authors">
             Ke-Hung Vo, Anh-Minh Phan, Hoang-Duy Le, Viet-Cuong Pham
           </p>
+
           <p class="paper-venue">
-            <i class="fas fa-file-alt venue-icon"></i> <em>2025 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)</em>
+            <i class="fas fa-file-alt venue-icon"></i>
+            <em>2025 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)</em>
           </p>
+
           <p class="paper-accept">
-            <i class="far fa-calendar-check"></i> Accepted: 06/2025
+            <i class="far fa-calendar-check"></i>
+            Accepted: June 2025
           </p>
+
           <p class="paper-tldr">
-                This research is supported by Ho Chi Minh City University of Technology (HCMUT) under the Honors Student Research Program.          </p>
+            This research is supported by Ho Chi Minh City University of Technology (HCMUT)
+            under the Honors Student Research Program.
+          </p>
+
           <div class="paper-buttons">
-            <a href="https://drive.google.com/file/d/1BfPmb4QmANrZVvAQD_B2CgWjoJHQ7mI0/view?usp=share_link" class="paper-btn"><i class="fas fa-file-pdf"></i> Paper</a>
-            <a href="https://github.com/hungvoct/Multi-Camera-Multi-Object-Tracking.git" class="paper-btn"><i class="fas fa-code"></i> Code</a>
-            <a href="https://drive.google.com/file/d/10KY-Rpjz9q0L6LmjvZCgzJ6ZZpu_jHS2/view?usp=sharing" class="paper-btn"><i class="fas fa-image"></i> Poster</a>
+
+            <a href="https://drive.google.com/file/d/1BfPmb4QmANrZVvAQD_B2CgWjoJHQ7mI0/view?usp=share_link" class="paper-btn">
+              <i class="fas fa-file-pdf"></i> Paper
+            </a>
+
+            <a href="https://github.com/hungvoct/Multi-Camera-Multi-Object-Tracking.git" class="paper-btn">
+              <i class="fas fa-code"></i> Code
+            </a>
+
+            <a href="https://drive.google.com/file/d/10KY-Rpjz9q0L6LmjvZCgzJ6ZZpu_jHS2/view?usp=sharing" class="paper-btn">
+              <i class="fas fa-image"></i> Poster
+            </a>
+
           </div>
+
         </div>
+
       </article>
-      
+
     </section>
 
-    <!-- ====== EDUCATION & EXPERIENCE ====== -->
+
+
+    <!-- ===== EDUCATION ===== -->
+
     <section id="experience" class="content-section">
+
       <h2 class="section-title">Education & Experience</h2>
-      
+
       <div class="exp-item">
+
         <div class="exp-logo">
           <img src="figs/homepage/hcmut-logo.png" alt="HCMUT logo">
         </div>
-        <div class="exp-info">
-          <div class="exp-header">
-            <h3>Ho Chi Minh University of Technology (VNU-HCM)</h3>
-            <span class="exp-period">2021 — 2025</span>
-          </div>
-          <p class="exp-role">B.E. in Control Engineering and Automation</p>
-          <p class="exp-detail">Major focus: Robotics, Computer Vision. Specialize in Multi-object Tracking (MOT) for both single view and multi view</p>
-        </div>
-      </div>
 
-      <!-- <div class="exp-item">
-        <div class="exp-logo">
-          <div class="exp-logo-placeholder">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-        </div>
         <div class="exp-info">
+
           <div class="exp-header">
-            <h3>Master & PhD (Preparing)</h3>
-            <span class="exp-period">2025/2026 — TBD</span>
+
+            <h3>Ho Chi Minh University of Technology (VNU-HCM)</h3>
+
+            <span class="exp-period">2021 — 2025</span>
+
           </div>
-          <p class="exp-detail">Target: Master's & PhD programs in computer vision, robotics, or machine learning .</p>
+
+          <p class="exp-role">
+            B.E. in Control Engineering and Automation
+          </p>
+
+          <p class="exp-detail">
+            Major focus: Robotics, Computer Vision.
+            Specialize in Multi-object Tracking (MOT) for both single view and multi view.
+          </p>
+
         </div>
-      </div> -->
+
+      </div>
 
     </section>
 
-  
 
-    <!-- ====== CONTACT / FOOTER ====== -->
+    <!-- ===== FOOTER ===== -->
+
     <footer id="contact" class="site-footer">
-      <p>© 2025 hungvoct · Built with <a href="https://github.com/hungvoct/hungvoct.github.io" target="_blank" rel="noreferrer">open source</a></p>
+
+      <p>
+        © 2025 hungvoct · Built with
+        <a href="https://github.com/hungvoct/hungvoct.github.io" target="_blank" rel="noreferrer">open source</a>
+      </p>
+
       <div class="footer-links">
-        <a href="https://github.com/hungvoct" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
-        <a href="kehungfc123@gmail.com"><i class="fas fa-envelope"></i></a>
+
+        <a href="https://github.com/hungvoct" target="_blank" rel="noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+
+        <a href="mailto:kehungfc123@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+
       </div>
+
     </footer>
 
   </main>
+
 </body>
+
 </html>
